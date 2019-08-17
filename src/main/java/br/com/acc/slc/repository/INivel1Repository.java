@@ -1,0 +1,27 @@
+package br.com.acc.slc.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.domain.Page;
+
+import br.com.acc.slc.vo.Nivel1;
+
+/**
+ * Interface responsavel pela persistencia da entidade Nivel1
+ * 
+ * @author Alan Cristian Cardoso | alan.acc91@gmail.com 12 de ago de 2019 |
+ *         20:27:43
+ */
+public interface INivel1Repository {
+
+    Page<Nivel1> selecionarNiveis1Paginados(Integer pagina, Integer linhasPorPagina, String ordernacao, String direcao);
+
+    Optional<Nivel1> selecionarNivel1PorId(Integer id);
+
+    Nivel1 inserirNivel1(Nivel1 nivel1);
+
+    Nivel1 atualizarNivel1(Nivel1 nivel1);
+
+    void deletarNivel1(Integer id);
+
+}
