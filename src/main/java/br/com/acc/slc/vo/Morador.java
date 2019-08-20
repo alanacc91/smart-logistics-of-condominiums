@@ -2,6 +2,7 @@ package br.com.acc.slc.vo;
 
 import java.util.Calendar;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,6 +15,7 @@ import javax.persistence.ManyToOne;
  * @author Alan Cristian Cardoso | alan.acc91@gmail.com 12 de ago de 2019 |
  *         20:11:55
  */
+@Entity
 public class Morador {
 
     @Id

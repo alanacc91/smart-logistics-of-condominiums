@@ -1,5 +1,6 @@
 package br.com.acc.slc.vo;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,6 +13,7 @@ import javax.persistence.ManyToOne;
  * @author Alan Cristian Cardoso | alan.acc91@gmail.com 12 de ago de 2019 |
  *         20:07:59
  */
+@Entity
 public class Nivel2 {
 
     @Id
