@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +28,7 @@ import br.com.acc.slc.vo.Morador;
  * @author Alan Cristian Cardoso | alan.acc91@gmail.com 15 de ago de 2019 |
  *         20:19:38
  */
+@CrossOrigin
 @RestController
 @RequestMapping(value = "/moradores")
 public class MoradorRest {
