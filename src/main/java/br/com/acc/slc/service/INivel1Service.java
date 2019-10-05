@@ -1,5 +1,7 @@
 package br.com.acc.slc.service;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 
 import br.com.acc.slc.vo.Nivel1;
@@ -53,5 +55,31 @@ public interface INivel1Service {
      * @param id ID do nivel1 a ser deletado
      */
     void deletarNivel1(Integer id);
+
+    /**
+     * Metodo responsavel por selecionar niveis1 por nome
+     * 
+     * @param nome nome a ser buscado
+     * @return Lista de niveis 1
+     */
+    List<Nivel1> selecionarNiveis1PorNomeIgnorandoCaseEUtilizandoLike(String nome);
+
+    /**
+     * Metodo responsavel por verificar se nivel1 ja existe
+     * 
+     * @param nome nome a ser validado
+     * @return verdadeiro se existe / falso se nao
+     */
+    boolean nivel1Existir(String nome);
+
+    /**
+     * Metodo responsavel por verificar se nivel1 ja existe com id diferente do que
+     * esta sendo atualizado
+     * 
+     * @param nome nome a procurado
+     * @param id   id do objeto atualizado
+     * @return verdadeiro se existe / falso se nao
+     */
+    boolean nivel1ExistirComIdDiferente(String nome, Integer id);
 
 }

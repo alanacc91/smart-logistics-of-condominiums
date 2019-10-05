@@ -1,5 +1,7 @@
 package br.com.acc.slc.service;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 
 import br.com.acc.slc.vo.Nivel2;
@@ -53,5 +55,13 @@ public interface INivel2Service {
      * @param id ID do nivel2 a ser deletado
      */
     void deletarNivel2(Integer id);
+
+    /**
+     * Metodo responsavel por selecionar uma lista de niveis 2 pertencentes a
+     * determinado nivel 1
+     * 
+     * @return lista de niveis 2
+     */
+    List<Nivel2> selecionarNiveis2PorNivel1(Integer id);
 
 }

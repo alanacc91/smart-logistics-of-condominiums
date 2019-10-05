@@ -1,5 +1,6 @@
 package br.com.acc.slc.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.domain.Page;
@@ -23,5 +24,11 @@ public interface INivel1Repository {
     Nivel1 atualizarNivel1(Nivel1 nivel1);
 
     void deletarNivel1(Integer id);
+
+    List<Nivel1> selecionarNiveis1PorNomeIgnorandoCaseEUtilizandoLike(String nome);
+    
+    List<Nivel1> selecionarNiveis1PorNomeIgnorandoCase(String nome);
+    
+    List<Nivel1> selecionarNiveis1PorNomeIgnorandoCaseEPorIdDiferente(String nome, Integer id);
 
 }

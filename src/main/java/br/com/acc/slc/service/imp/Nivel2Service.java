@@ -1,5 +1,6 @@
 package br.com.acc.slc.service.imp;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,11 @@ public class Nivel2Service implements INivel2Service {
 	    throw new DataIntegrityException("Falha ao deletar Nivel2!");
 	}
 
+    }
+
+    @Override
+    public List<Nivel2> selecionarNiveis2PorNivel1(Integer id) {
+	return nivel2Repository.selecionarNiveis2PorNivel1(id);
     }
 
 }

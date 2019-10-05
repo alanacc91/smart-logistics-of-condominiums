@@ -1,5 +1,7 @@
 package br.com.acc.slc.repository.jpa;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,5 +15,7 @@ import br.com.acc.slc.vo.Nivel2;
  */
 @Repository
 public interface INivel2JPARepository extends JpaRepository<Nivel2, Integer> {
+
+    List<Nivel2> findByNivel1Id(Integer id);
 
 }

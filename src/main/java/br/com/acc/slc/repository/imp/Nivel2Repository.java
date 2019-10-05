@@ -1,5 +1,6 @@
 package br.com.acc.slc.repository.imp;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,11 @@ public class Nivel2Repository implements INivel2Repository {
 
     public void deletarNivel2(Integer id) {
 	nivel2Repository.deleteById(id);
+    }
+
+    @Override
+    public List<Nivel2> selecionarNiveis2PorNivel1(Integer id) {
+	return nivel2Repository.findByNivel1Id(id);
     }
 
 }
