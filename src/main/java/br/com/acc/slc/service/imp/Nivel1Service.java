@@ -35,7 +35,7 @@ public class Nivel1Service implements INivel1Service {
 
     @Autowired
     IConfiguracaoService configuracaoService;
-    
+
     @Autowired
     INivel2Service nivel2Service;
 
@@ -87,9 +87,9 @@ public class Nivel1Service implements INivel1Service {
     }
 
     public void deletarNivel1(Integer id) {
-	
+
 	List<Nivel2> listaDeNiveis2 = nivel2Service.selecionarNiveis2PorNivel1(id);
-	
+
 	if (Nivel2Validator.listaDeNivel2TemItens(listaDeNiveis2)) {
 	    Configuracao configuracao = configuracaoService.selecionarConfiguracaoPorId(1);
 	    String mensagemDeErro = null;
@@ -101,8 +101,8 @@ public class Nivel1Service implements INivel1Service {
 	    }
 	    throw new DataIntegrityException(mensagemDeErro);
 	}
-	
-	try {  
+
+	try {
 	    nivel1Repository.deletarNivel1(id);
 	} catch (DataIntegrityViolationException e) {
 	    throw new DataIntegrityException("Falha ao deletar Nivel1!");
@@ -125,6 +125,11 @@ public class Nivel1Service implements INivel1Service {
     public boolean nivel1ExistirComIdDiferente(String nome, Integer id) {
 	List<Nivel1> listaDeNivel1 = nivel1Repository.selecionarNiveis1PorNomeIgnorandoCaseEPorIdDiferente(nome, id);
 	return Nivel1Validator.listaDeNivel1TemItens(listaDeNivel1);
+    }
+
+    @Override
+    public List<Nivel1> selecionarNiveis1() {
+	return nivel1Repository.selecionarNiveis1();
     }
 
 }

@@ -26,6 +26,13 @@ public interface INivel1Service {
     Page<Nivel1> selecionarNiveis1Paginados(Integer pagina, Integer linhasPorPagina, String ordernacao, String direcao);
 
     /**
+     * Metodo reponsavel por selecionar todos os niveis1
+     * 
+     * @return niveis1
+     */
+    List<Nivel1> selecionarNiveis1();
+
+    /**
      * Metodo reponsavel por selecionar um nivel1 pelo seu ID
      * 
      * @param id ID do nivel1 a ser selecionado

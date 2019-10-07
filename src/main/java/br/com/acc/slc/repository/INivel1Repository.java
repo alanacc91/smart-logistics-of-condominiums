@@ -16,6 +16,8 @@ import br.com.acc.slc.vo.Nivel1;
 public interface INivel1Repository {
 
     Page<Nivel1> selecionarNiveis1Paginados(Integer pagina, Integer linhasPorPagina, String ordernacao, String direcao);
+    
+    List<Nivel1> selecionarNiveis1();
 
     Optional<Nivel1> selecionarNivel1PorId(Integer id);
 

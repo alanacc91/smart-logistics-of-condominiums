@@ -75,6 +75,13 @@ public class Nivel1Rest {
 	return ResponseEntity.ok().body(listaDeNiveis1);
     }
 
+    @GetMapping(value = "/all")
+    public ResponseEntity<List<Nivel1>> selecionarNiveis1Paginados() {
+	List<Nivel1> listaDeNiveis1 = nivel1Service.selecionarNiveis1();
+
+	return ResponseEntity.ok().body(listaDeNiveis1);
+    }
+
     @GetMapping(value = "/nome/{nome}")
     public ResponseEntity<List<Nivel1>> selecionarNiveis1PorNome(@PathVariable String nome) {
 

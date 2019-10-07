@@ -21,5 +21,7 @@ public interface INivel1JPARepository extends JpaRepository<Nivel1, Integer> {
     List<Nivel1> findByNomeIgnoreCase(String nome);
 
     List<Nivel1> findByNomeIgnoreCaseAndIdNot(String nome, Integer id);
+    
+    List<Nivel1> findAllByOrderByNome();
 
 }

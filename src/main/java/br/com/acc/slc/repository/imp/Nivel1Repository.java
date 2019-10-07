@@ -30,6 +30,7 @@ public class Nivel1Repository implements INivel1Repository {
 
 	PageRequest pageRequest = PageRequest.of(pagina, linhasPorPagina, Direction.valueOf(direcao), ordernacao);
 	return nivel1Repository.findAll(pageRequest);
+
     }
 
     @Override
@@ -66,6 +67,11 @@ public class Nivel1Repository implements INivel1Repository {
     @Override
     public List<Nivel1> selecionarNiveis1PorNomeIgnorandoCaseEPorIdDiferente(String nome, Integer id) {
 	return nivel1Repository.findByNomeIgnoreCaseAndIdNot(nome, id);
+    }
+
+    @Override
+    public List<Nivel1> selecionarNiveis1() {
+	return nivel1Repository.findAllByOrderByNome();
     }
 
 }
