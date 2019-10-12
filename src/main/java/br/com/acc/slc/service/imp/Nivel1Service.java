@@ -40,6 +40,7 @@ public class Nivel1Service implements INivel1Service {
     INivel2Service nivel2Service;
 
     public Page<Nivel1> selecionarNiveis1Paginados(Integer pagina, Integer linhasPorPagina, String ordernacao, String direcao) {
+	pagina -= 1;
 	return nivel1Repository.selecionarNiveis1Paginados(pagina, linhasPorPagina, ordernacao, direcao);
     }
 
@@ -130,6 +131,12 @@ public class Nivel1Service implements INivel1Service {
     @Override
     public List<Nivel1> selecionarNiveis1() {
 	return nivel1Repository.selecionarNiveis1();
+    }
+
+    @Override
+    public Nivel1 selecionarNivel1PorNome(String nome) {
+	Optional<Nivel1> nivel1 = nivel1Repository.selecionarNivel1PorNome(nome);
+	return nivel1.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! Nome: " + nome + ", Tipo: " + Nivel1.class.getName()));
     }
 
 }

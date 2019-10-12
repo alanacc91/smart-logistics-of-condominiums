@@ -1,6 +1,7 @@
 package br.com.acc.slc.repository.jpa;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -19,6 +20,8 @@ public interface INivel1JPARepository extends JpaRepository<Nivel1, Integer> {
     List<Nivel1> findByNomeIgnoreCaseContaining(String nome);
 
     List<Nivel1> findByNomeIgnoreCase(String nome);
+    
+    Optional<Nivel1> findByNome(String nome);
 
     List<Nivel1> findByNomeIgnoreCaseAndIdNot(String nome, Integer id);
     

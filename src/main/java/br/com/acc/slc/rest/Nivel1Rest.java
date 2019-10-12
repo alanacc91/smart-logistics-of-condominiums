@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import br.com.acc.slc.dto.LookupDTO;
 import br.com.acc.slc.service.INivel1Service;
 import br.com.acc.slc.vo.Nivel1;
 
@@ -37,6 +38,13 @@ public class Nivel1Rest {
     @Autowired
     private INivel1Service nivel1Service;
 
+    @GetMapping(value = "/nome/lookup/{nome}")
+    public ResponseEntity<Nivel1> selecionarNivel1PorNome(@PathVariable String nome) {
+
+	Nivel1 nivel1 = nivel1Service.selecionarNivel1PorNome(nome);
+	return ResponseEntity.ok().body(nivel1);
+    }
+    
     @GetMapping(value = "/{id}")
     public ResponseEntity<Nivel1> selecionarNivel1PorId(@PathVariable Integer id) {
 
@@ -67,26 +75,33 @@ public class Nivel1Rest {
     }
 
     @GetMapping(value = "/page")
-    public ResponseEntity<Page<Nivel1>> selecionarNiveis1Paginados(@RequestParam(value = "pagina", defaultValue = "0") Integer pagina,
+    public ResponseEntity<LookupDTO> selecionarNiveis1Paginados(@RequestParam(value = "pagina", defaultValue = "0") Integer pagina,
 	    @RequestParam(value = "linhasPorPagina", defaultValue = "24") Integer linhasPorPagina,
 	    @RequestParam(value = "ordenacao", defaultValue = "id") String ordenacao, @RequestParam(value = "direcao", defaultValue = "ASC") String direcao) {
-	Page<Nivel1> listaDeNiveis1 = nivel1Service.selecionarNiveis1Paginados(pagina, linhasPorPagina, ordenacao, direcao);
 
-	return ResponseEntity.ok().body(listaDeNiveis1);
+	Page<Nivel1> listaDeNiveis1 = nivel1Service.selecionarNiveis1Paginados(pagina, linhasPorPagina, ordenacao, direcao);
+	LookupDTO lookupNivel1DTO = new LookupDTO();
+	lookupNivel1DTO.setItems(listaDeNiveis1.getContent());
+	lookupNivel1DTO.setHasNext(lookupNivel1DTO.getItems().size() == linhasPorPagina);
+
+	return ResponseEntity.ok().body(lookupNivel1DTO);
     }
 
     @GetMapping(value = "/all")
-    public ResponseEntity<List<Nivel1>> selecionarNiveis1Paginados() {
+    public ResponseEntity<List<Nivel1>> selecionarNiveis1() {
 	List<Nivel1> listaDeNiveis1 = nivel1Service.selecionarNiveis1();
 
 	return ResponseEntity.ok().body(listaDeNiveis1);
     }
 
     @GetMapping(value = "/nome/{nome}")
-    public ResponseEntity<List<Nivel1>> selecionarNiveis1PorNome(@PathVariable String nome) {
+    public ResponseEntity<LookupDTO> selecionarNiveis1PorNome(@PathVariable String nome) {
 
 	List<Nivel1> niveis1 = nivel1Service.selecionarNiveis1PorNomeIgnorandoCaseEUtilizandoLike(nome);
-	return ResponseEntity.ok().body(niveis1);
+	LookupDTO lookupNivel1DTO = new LookupDTO();
+	lookupNivel1DTO.setItems(niveis1);
+
+	return ResponseEntity.ok().body(lookupNivel1DTO);
     }
 
 }

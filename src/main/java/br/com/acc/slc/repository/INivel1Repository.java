@@ -20,6 +20,8 @@ public interface INivel1Repository {
     List<Nivel1> selecionarNiveis1();
 
     Optional<Nivel1> selecionarNivel1PorId(Integer id);
+    
+    Optional<Nivel1> selecionarNivel1PorNome(String nome);
 
     Nivel1 inserirNivel1(Nivel1 nivel1);
 

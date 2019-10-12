@@ -74,4 +74,9 @@ public class Nivel1Repository implements INivel1Repository {
 	return nivel1Repository.findAllByOrderByNome();
     }
 
+    @Override
+    public Optional<Nivel1> selecionarNivel1PorNome(String nome) {
+	return nivel1Repository.findByNome(nome);
+    }
+
 }

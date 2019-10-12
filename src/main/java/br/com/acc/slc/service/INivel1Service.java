@@ -41,6 +41,14 @@ public interface INivel1Service {
     Nivel1 selecionarNivel1PorId(Integer id);
 
     /**
+     * Metodo responsavel por selecionar um nivel pelo seu nome
+     * 
+     * @param nome Nome do nivel1 a ser selecionado
+     * @return nivel1 selecionado
+     */
+    Nivel1 selecionarNivel1PorNome(String nome);
+
+    /**
      * Metodo reponsavel por inserir um nivel1
      * 
      * @param nivel1 nivel1 a ser inserido
